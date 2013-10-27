@@ -100,7 +100,7 @@ public class MetadataRPCImpl extends RemoteServiceServlet implements MetadataRPC
 	/**
 	 * 
 	 * @param mediaId
-	 * @return
+	 * @return TechnicalMetadataGWTDTO
 	 */
 	public TechnicalMetadataGWTDTO getTechnicalMetadataTV(Integer mediaId) {
 		logger.debug("getting Technical Metadata...");
@@ -115,9 +115,9 @@ public class MetadataRPCImpl extends RemoteServiceServlet implements MetadataRPC
 	 * Gets the technicalMetadata for a file and not from the database. Also
 	 * loads the expected Names every technical metadata attribute
 	 * 
-	 * @param mediaTempFileId
-	 * @param mediaTypeName
-	 * @return
+	 * @param mediaTempFileId string
+	 * @param mediaTypeName string
+	 * @return TechnicalMetadataGWTDTO
 	 * @throws IllegalArgumentException
 	 */
 	public TechnicalMetadataGWTDTO getTechnicalMetadataTV(String mediaTempFileId, String mediaTypeName) throws IllegalArgumentException {
@@ -140,7 +140,7 @@ public class MetadataRPCImpl extends RemoteServiceServlet implements MetadataRPC
 	 * to be shown on the left column of the table, is NOT the value of the
 	 * attribute!!
 	 * 
-	 * @param mediaTypeName
+	 * @param mediaTypeKey string
 	 * @throws if
 	 *             the MediaTypeName has no associated technical Metadata
 	 */
@@ -289,8 +289,6 @@ public class MetadataRPCImpl extends RemoteServiceServlet implements MetadataRPC
 
 	/**
 	 * Gets the textual values of the mediaCategories
-	 * 
-	 * @return
 	 */
 	public List<String> getMediaCategories() {
 		logger.debug("getting Media Categories...");
@@ -313,12 +311,10 @@ public class MetadataRPCImpl extends RemoteServiceServlet implements MetadataRPC
 	/**
 	 * Used in the GeneralMetadataTable class
 	 * 
-	 * @see GeneralMetadataTable
-	 * 
 	 * Gets the Complete Taxon Name of Specimen using the specimen number Uses a
 	 * conection the local atta database
 	 * 
-	 * @param int -
+	 * @param specimenNumber -
 	 *            the specimen id number
 	 * @return String - Name of the specimen, or null is there was no match
 	 * @deprecated
@@ -382,7 +378,7 @@ public class MetadataRPCImpl extends RemoteServiceServlet implements MetadataRPC
 	/**
 	 * 
 	 * @param observationNumber
-	 * @return
+	 * @return result
 	 * @throws RPCIllegalArgumentException
 	 */
 	public List<String> getTaxonIdsByObservationNumber(Integer observationNumber)
@@ -412,7 +408,6 @@ public class MetadataRPCImpl extends RemoteServiceServlet implements MetadataRPC
 	/**
 	 * 
 	 * @param gatheringCode
-	 * @return
 	 * @throws RPCIllegalArgumentException
 	 */
 	public List<String> getTaxonIdsByGatheringCode(String gatheringCode)
@@ -447,8 +442,6 @@ public class MetadataRPCImpl extends RemoteServiceServlet implements MetadataRPC
 	/**
 	 * Used in the GeneralMetadataTable class
 	 * 
-	 * @see GeneralMetadataTable
-	 * 
 	 * Gets the site or gathering label of a specimen Uses a conection the local
 	 * atta database, invokes an atta function
 	 * 
@@ -479,8 +472,6 @@ public class MetadataRPCImpl extends RemoteServiceServlet implements MetadataRPC
 
 	/**
 	 * Used in the GeneralMetadataTable class
-	 * 
-	 * @see GeneralMetadataTable
 	 * 
 	 * Gets the site of an observation: site description, observation
 	 * surrounding description, observation site description and coordinates.
@@ -514,13 +505,11 @@ public class MetadataRPCImpl extends RemoteServiceServlet implements MetadataRPC
 	/**
 	 * Used in the GeneralMetadataTable class
 	 * 
-	 * @see GeneralMetadataTable
-	 * 
 	 * Gets the site of an observation: site description, observation
 	 * surrounding description, observation site description and coordinates.
 	 * Uses a conection the local atta database, invokes an atta function
 	 * 
-	 * @param observationNumber
+	 * @param gatheringCode
 	 *            the database identifier of the observation
 	 * @return literal string value of the site of the observation
 	 * @throws RPCIllegalArgumentException
@@ -549,8 +538,6 @@ public class MetadataRPCImpl extends RemoteServiceServlet implements MetadataRPC
 
 	/**
 	 * Used in the UsesAndCopyrightsPanel class
-	 * 
-	 * @see UsesAndCopyrightsTable
 	 * 
 	 * Gets all the People first and last name avaliables.
 	 * 
@@ -583,8 +570,6 @@ public class MetadataRPCImpl extends RemoteServiceServlet implements MetadataRPC
 	 * 
 	 * Gets all the Media Uses avaliable
 	 * 
-	 * @param language
-	 *            is the id of the media uses, example 1 for espa�ol
 	 * @return List of TextAndValue items.
 	 * 
 	 * The media uses have to be filtered by any thing?, like category?
@@ -610,8 +595,6 @@ public class MetadataRPCImpl extends RemoteServiceServlet implements MetadataRPC
 	 * 
 	 * Gets all the Use Policies avaliable.
 	 * 
-	 * @param language
-	 *            is the id of the media uses, example 1 for espa�ol
 	 * @return List of TextAndValue items.
 	 */
 

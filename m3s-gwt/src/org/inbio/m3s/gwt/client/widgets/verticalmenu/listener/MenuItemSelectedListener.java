@@ -9,7 +9,7 @@ import java.util.EventListener;
 public interface MenuItemSelectedListener extends EventListener {
 
 	/**
-	 * @param int
+	 * @param itemIndex
 	 *            representing the index of the menu item selected
 	 */
 	void itemSelected(int itemIndex);

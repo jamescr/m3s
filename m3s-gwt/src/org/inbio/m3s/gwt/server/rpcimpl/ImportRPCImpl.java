@@ -39,7 +39,7 @@ public class ImportRPCImpl extends RemoteServiceServlet implements ImportRPC {
 	private ImportThread importThread = (ImportThread) ServiceUtil.appContext.getBean(Properties.IMPORT_THREAD);
 	
 	/**
-	 * @param username
+	 * @param userName
 	 *            user which import control information is requested
 	 * @return a list of ImportResultData elements to be displayed on the table
 	 */

@@ -186,7 +186,7 @@ public class UsesAndCopyrightsPanel extends VerticalPanel {
 	/**
 	 * Shows the uses and copyrigts metadata given as parameter
 	 * 
-	 * @param usesAndCopyrigths
+	 * @param uacGWTDTO
 	 */
 	public void setUACMetadata(UsesAndCopyrightsGWTDTO uacGWTDTO) {
 		
@@ -209,7 +209,6 @@ public class UsesAndCopyrightsPanel extends VerticalPanel {
 
 	/**
 	 * 
-	 * @return
 	 */
 	public UsesAndCopyrightsGWTDTO getUsesAndCopyrightsGWTDTO() {
 		ListBox temporal;

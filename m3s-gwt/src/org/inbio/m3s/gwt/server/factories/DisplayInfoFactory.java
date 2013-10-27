@@ -35,7 +35,6 @@ public class DisplayInfoFactory {
 	/**
 	 * 
 	 * @param mll
-	 * @return
 	 */
 	public static List<DisplayInfo> createDisplayInfoList(List<MediaLite> mll){
 	
@@ -52,7 +51,6 @@ public class DisplayInfoFactory {
 	/**
 	 * 
 	 * @param ml
-	 * @return
 	 */
 	public static DisplayInfo createDisplayInfo(MediaLite ml){
 		
@@ -146,7 +144,6 @@ public class DisplayInfoFactory {
 	 * gets the apropiated media type
 	 * 
 	 * @param mediaCategoryId
-	 * @return
 	 */
 	private static DisplayType getDisplayType(Integer mediaCategoryId) {
 		

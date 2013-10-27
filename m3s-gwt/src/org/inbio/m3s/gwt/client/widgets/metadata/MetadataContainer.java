@@ -210,7 +210,7 @@ public class MetadataContainer extends VerticalPanel implements CategoryAndTypeL
 	 * Inits the TechnicalMetadata tab
 	 * 
 	 * @param language
-	 * @param mediaTypeName
+	 * @param mediaTypeKey string
 	 * @param mainTab
 	 *            if true will set this tab as the
 	 */

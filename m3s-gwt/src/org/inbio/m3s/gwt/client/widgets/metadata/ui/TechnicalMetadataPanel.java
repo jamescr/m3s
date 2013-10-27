@@ -91,7 +91,7 @@ public class TechnicalMetadataPanel extends VerticalPanel {
 	 * Sets the values in the rows as they come, param in position 0 will be in
 	 * row 0...
 	 * 
-	 * @param tmtv
+	 * @param tmGWTDTO
 	 *            a TechnicalMetadataTV object
 	 */
 	public void setTechMetadataGWTDTO(TechnicalMetadataGWTDTO tmGWTDTO) {

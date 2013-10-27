@@ -25,7 +25,7 @@ import org.inbio.m3s.gwt.client.config.ClientProperties;
 /**
  * 
  * @author jgutierrez
- * @version
+ * @version 1.0
  */
 public class FileUploadManager extends HttpServlet {
 

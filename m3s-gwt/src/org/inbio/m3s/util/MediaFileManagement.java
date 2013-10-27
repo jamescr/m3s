@@ -39,8 +39,6 @@ public class MediaFileManagement {
 	 * 
 	 * @param tempFileName
 	 *          temporal name of the image
-	 * @param DBFileName
-	 *          the name of the file with its extension
 	 * @param mediaId
 	 *          Data Base media Identifier
 	 * @throws IllegalArgumentExcption
@@ -116,7 +114,7 @@ public class MediaFileManagement {
 	/**
 	 * 
 	 * @param fileName
-	 * @return
+	 * @return boolean
 	 */
 	public static boolean isFileReadable(String fileName){
 		logger.debug("isFileReadable");

@@ -58,7 +58,7 @@ public class GeneralMetadataPanel extends VerticalPanel implements
 	 * Class constructor, creates an empty table with all the text in the selected
 	 * language
 	 * 
-	 * @param language
+	 * @param catListener
 	 */
 	public GeneralMetadataPanel(CategoryAndTypeListener catListener) {
 		initRPC();

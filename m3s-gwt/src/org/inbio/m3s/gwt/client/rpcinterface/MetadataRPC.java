@@ -120,9 +120,11 @@ public interface MetadataRPC extends RemoteService {
 	/**
 	 * Used in the GeneralMetadataTable class
 	 * 
-	 * @see GeneralMetadataTable The annotation indicates that the returned List
-	 *      will only contain String objects. This is done because GWT needs in
-	 *      order to return List objects using RPC
+	 * @param specimenId Integer
+	 * 
+	 * The annotation indicates that the returned List will only contain
+	 *  String objects. This is done because GWT needs in order to 
+	 * return List objects using RPC
 	 * 
 	 */
 	public String getSiteFromSpecimenNumber(Integer specimenId)
@@ -131,7 +133,7 @@ public interface MetadataRPC extends RemoteService {
 	/**
 	 * Used in the GeneralMetadataTable class
 	 * 
-	 * @see GeneralMetadataTable The annotation indicates that the returned List
+	 * @see The annotation indicates that the returned List
 	 *      will only contain String objects. This is done because GWT needs in
 	 *      order to return List objects using RPC
 	 * 

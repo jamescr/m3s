@@ -60,7 +60,7 @@ public class SearchManager {
 	 * @param searchCriteria
 	 * @param first
 	 * @param last
-	 * @return
+	 * @return gsDAOImpl.getResults(HSQL, first, last);
 	 * 
 	 */
 	@SuppressWarnings("unchecked")
