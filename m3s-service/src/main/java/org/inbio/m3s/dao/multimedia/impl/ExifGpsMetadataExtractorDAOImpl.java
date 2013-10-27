@@ -33,11 +33,11 @@ public class ExifGpsMetadataExtractorDAOImpl implements MetadataExtractorDAO{
 		this.fileAddress =fileAddress;
     
 		try {
-    	File jpegFile = new File(fileAddress);
-    	Metadata metadata = JpegMetadataReader.readMetadata(jpegFile); 
-    	this.gpsDirectory = metadata.getDirectory(GpsDirectory.class);
+			File jpegFile = new File(fileAddress);
+			Metadata metadata = JpegMetadataReader.readMetadata(jpegFile); 
+			this.gpsDirectory = metadata.getDirectory(GpsDirectory.class);
     	
-    } catch (JpegProcessingException e) {
+		} catch (JpegProcessingException e) {
 			e.printStackTrace();
 			throw new IllegalArgumentException("The fileAddress ["+fileAddress+"] doesn't exist. ",e.getCause());
 		}
@@ -45,19 +45,22 @@ public class ExifGpsMetadataExtractorDAOImpl implements MetadataExtractorDAO{
 	}
 
 	
-	
+	/**
+	 * 
+	 */
 	public String getAttributeValue(int standardAttributeId)
 			throws IllegalArgumentException, IllegalStateException {
 		
 		logger.debug("with standard attribute id  '"+standardAttributeId+"'");
 		
 		if (this.gpsDirectory == null)
-			throw new IllegalStateException("Debe invocar el metodo init.");
+			throw new IllegalStateException("You must invoke the init method.");
 		
 		else if (standardAttributeId == MediaAttributeEntity.GPS_LATITUDE.getMediaAtributeId()){
 			
 			logger.debug("gps latitude");
 			try{
+				
 				Rational[] lat = gpsDirectory.getRationalArray(GpsDirectory.TAG_GPS_LATITUDE);
 				Double lats = lat[0].doubleValue() + lat[1].doubleValue()/60 + lat[2].doubleValue()/3600;
 			
@@ -65,8 +68,9 @@ public class ExifGpsMetadataExtractorDAOImpl implements MetadataExtractorDAO{
 					lats = lats * -1; 
 			
 				return String.valueOf(lats);
+				
 			} catch(MetadataException me){
-				throw new IllegalArgumentException("atributo invalido");	
+				throw new IllegalArgumentException("problems reading attribute id '"+standardAttributeId+"'." );	
 			}
 
 		}

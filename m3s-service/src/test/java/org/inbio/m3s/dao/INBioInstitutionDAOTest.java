@@ -23,10 +23,11 @@ public class INBioInstitutionDAOTest extends AbstractDependencyInjectionSpringCo
 				//"classpath*:/org/inbio/m3s/service/impl/applicationContext-service-test.xml"				
 				};
 	}
-	/*
+	
 	@SuppressWarnings("unchecked")
 	public void testSimpleINBioInstitutionDAO(){
-		
+	
+	/*	
 		 InstitutionDAO INBioInstitutionDAO = (InstitutionDAO) this.applicationContext.getBean("INBioInstitutionDAO");
 		 InstitutionLiteDTOFactory institionLiteDTOFactory = (InstitutionLiteDTOFactory) this.applicationContext.getBean("institutionLiteDTOFactory");
 		 
@@ -51,10 +52,9 @@ public class INBioInstitutionDAOTest extends AbstractDependencyInjectionSpringCo
 			assertTrue( false );
 		}
     
-    
-    assertTrue( true );
+		*/
+		assertTrue( true );
 		
 	}
-*/
 
 }

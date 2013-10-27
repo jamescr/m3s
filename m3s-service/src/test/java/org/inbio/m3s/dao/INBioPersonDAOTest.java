@@ -56,6 +56,10 @@ public class INBioPersonDAOTest extends AbstractDependencyInjectionSpringContext
 	}
 	*/
 	
+	public void testDummy(){
+		assertTrue(true);
+	}
+	
 	/*
 	public void testListAllGatheringResponsiblePersonLite(){
 		

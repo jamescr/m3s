@@ -9,12 +9,15 @@
   <version>2.1-SNAPSHOT</version>
   <name>m3s-service</name>
   <url>http://lucina.inbio.ac.cr/m3sINBio</url>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
 
   <dependencies>
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate</artifactId>
-      <version>3.2.0.cr4</version>
+      <version>3.2.4.ga</version>
 	</dependency>
 	<dependency>
       <groupId>org.springframework</groupId>
@@ -65,11 +68,13 @@
     </dependency>
     
     <!-- provided jar -->
+    <!--
     <dependency>
       <groupId>com.oracle</groupId>
       <artifactId>ojdbc14</artifactId>
       <version>9.0.2.0.0</version>
     </dependency>		
+    -->
     <dependency>
       <groupId>net.sf.ehcache</groupId>
       <artifactId>ehcache</artifactId>
@@ -153,8 +158,8 @@
 
   <inceptionYear>2007</inceptionYear>
   <issueManagement>
-    <system>Trac</system>
-    <url>http://pulsatrix.inbio.ac.cr/projects/m3s/report/1</url>
+    <system>Github</system>
+    <url>https://github.com/jamescr/m3s/issues</url>
   </issueManagement>
 
   <developers>
@@ -169,14 +174,20 @@
     <url>http://www.inbio.ac.cr</url>
   </organization>
 
+<!--
   <distributionManagement>
     <repository>
       <id>inbio</id>
       <url>http://pulsatrix.inbio.ac.cr:9876/archiva/repository/inbio</url>
     </repository>
   </distributionManagement>
-
+-->
   <repositories>
+	<repository>
+      <id>java.net</id>
+      <url>http://download.java.net/maven/2/</url>
+    </repository>  
+    <!--
     <repository>
       <id>inbio</id>
       <name>INBio - Archiva Managed Repository</name>
@@ -188,7 +199,10 @@
         <enabled>true</enabled>
       </snapshots>
     </repository>
+ -->
   </repositories>
+ 
+ 
 </project>
 
 

@@ -1,6 +1,9 @@
 #!/bin/bash
-#Setup Script [test on Ubuntu 10.04]
+#Setup Script 
 # author: Jaime Gutiérrez - jgutierrez@inbio.ac.cr
+#
+#[test on Ubuntu 10.04]
+
 
 DEFAULT_M3S_PATH="/mnt/m3sImages/INBio";
 DEFAULT_IMPORTATION_BATCH_MEDIA_PATH="/root/m3sTempImages/INBio";
@@ -38,9 +41,21 @@ sudo mkdir $DEFAULT_IMPORTATION_BATCH_MEDIA_PATH -v -p;
 # TODO: fix the permissions...
 sudo chmod -R 777 $DEFAULT_IMPORTATION_BATCH_MEDIA_PATH;
 
+
 echo ""
 echo "Installing Image Magic"
 sudo apt-get install imagemagick
+
+
+echo ""
+echo "Installing Postgres"
+sudo apt-get install postgresql
+
+#after this change the password
+#echo "postgres password set using 'postgresql_set_password[2013-10-27].sql' values"
+#echo "after running this script, you must change the password"
+#sudo -u postgres psql < postgresql_set_password[2013-10-27].sql
+
 
 echo ""
 echo "Creating database [password for superuser will be prompt]"

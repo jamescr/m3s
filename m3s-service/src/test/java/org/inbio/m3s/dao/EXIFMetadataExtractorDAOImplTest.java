@@ -24,8 +24,8 @@ public class EXIFMetadataExtractorDAOImplTest extends AbstractDependencyInjectio
 		
 		MetadataExtractorDAO exifExtractor = (MetadataExtractorDAO) this.applicationContext.getBean("EXIFMetadataExtractorDAO");
 
-		//exifExtractor.init("/home/james/Desktop/Foto.jpg");
-		exifExtractor.init("/home/jgutierrez/Desktop/FujiFilm FinePixS1Pro.jpg");
+		exifExtractor.init("/home/james/Desktop/Foto.jpg");
+		//exifExtractor.init("/home/jgutierrez/Desktop/FujiFilm FinePixS1Pro.jpg");
 		
 		System.out.println(EXIFStandardAttributeEntity.ISO.getName()+" = "+exifExtractor.getAttributeValue(EXIFStandardAttributeEntity.ISO.getId()));
 		System.out.println(EXIFStandardAttributeEntity.CAMARA_MAKER.getName()+" = "+exifExtractor.getAttributeValue(EXIFStandardAttributeEntity.CAMARA_MAKER.getId()));
