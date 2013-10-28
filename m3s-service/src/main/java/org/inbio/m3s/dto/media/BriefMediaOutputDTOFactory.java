@@ -28,16 +28,16 @@ public class BriefMediaOutputDTOFactory extends BaseDTOFactory<Media,BriefMediaO
 	//Manager
 	private TaxonomyManager taxonomyManager;
 	private AgentManager agentManager;
-	
+
 	public BriefMediaOutputDTO createDTO(Media mediaLiteObject) {
-		
+
 		if(mediaLiteObject == null)
 			return null;
 		return createBriefMediaOutputDTO(mediaLiteObject);
 	}
-	
+
 	/**
-	 * 
+	 *
 	 * @param ml
 	 * @return
 	 */

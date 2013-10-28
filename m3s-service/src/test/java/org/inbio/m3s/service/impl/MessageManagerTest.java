@@ -28,7 +28,9 @@ public class MessageManagerTest extends AbstractServiceTest{
 
 	protected static Log logger = LogFactory.getLog(MessageManagerTest.class);
 	
-	
+	/**
+	 * No es un test (estrictamente hablando)
+	 */
 	public void testSpanishKeywords(){
 		
 		MessageManager sm = (MessageManager) getBean(Properties.MESSAGE_MANAGER);	
@@ -37,15 +39,16 @@ public class MessageManagerTest extends AbstractServiceTest{
     	
 			logger.info("No hay keyword para esos paremetros");
     
-    } else { 
-	     //logger.debug("con el id["+kl.getKeywordId()+"] y el nombre ="+kl.getName() );
-    	logger.info("total de elementos: " + klList.size());
+		} else { 
+			//logger.debug("con el id["+kl.getKeywordId()+"] y el nombre ="+kl.getName() );
+			logger.info("total de elementos: " + klList.size());
 	     
-	     for(KeywordDTO kl : klList){
-	    	 logger.info("con el id["+kl.getKeywordKey()+"] y el nombre ='"+kl.getName()+"'" );
-	     }
-    }
-		
+			for(KeywordDTO kl : klList){
+				logger.info("con el id["+kl.getKeywordKey()+"] y el nombre ='"+kl.getName()+"'" );
+			}
+		}
+		//ojo
+		assertTrue(true);	
 	}
 	/**/
 	

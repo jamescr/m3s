@@ -20,8 +20,9 @@ import org.inbio.m3s.service.ImportationManager;
 @SuppressWarnings("unused")
 public class ImportationManagerTest extends AbstractServiceTest{
 
-	
+		
 	public void testCreateAndUpdate(){
+		System.out.println("revisar los comentarios de la clase");
 		
 		ImportationManager im = (ImportationManager) getBean(Properties.IMPORTATION_MANAGER);		
 		ImportControlDTOLite icLite = new ImportControlDTOLite("aguacate file", ImportationManager.IMPORT_IN_PROGRESS,"jgutierrez","archivo aguacate");

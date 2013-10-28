@@ -110,7 +110,7 @@ public class TaxonomyManagerTest extends AbstractServiceTest{
 	}
 	*/
 
-	//getTaxonsByPatialNameAndTaxonomicalRange
+	//getTaxonsByPartialNameAndTaxonomicalRange
 	
 	public void testGetTaxonsByPatialNameAndTaxonomicalRange(){
 		
@@ -120,11 +120,13 @@ public class TaxonomyManagerTest extends AbstractServiceTest{
 		
 		//Animalia
 		taxonLiteDTOList = tm.getTaxonsByPatialNameAndTaxonomicalRange("Ani", TaxonomicalRangeEntity.KINGDOM);
-		logger.info("Total de taxones que coinciden con Ani y Kingdom: "+ taxonLiteDTOList.size());
+		if (taxonLiteDTOList != null) {
+			logger.info("Total de taxones que coinciden con Ani y Kingdom: "+ taxonLiteDTOList.size());
 		
-		for(TaxonLiteDTO tl : taxonLiteDTOList){
-			logger.info(tl.toString());
-    }
+			for(TaxonLiteDTO tl : taxonLiteDTOList){
+				logger.info(tl.toString());
+			}
+		}
 		
 		//Lepidoptera
 		//taxonLiteDTOList = tm.getTaxonsByPatialNameAndTaxonomicalRange("Lep", TaxonomicalRangeEntity.ORDER);

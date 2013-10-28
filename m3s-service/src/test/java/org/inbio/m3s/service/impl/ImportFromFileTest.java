@@ -38,5 +38,9 @@ public class ImportFromFileTest extends AbstractServiceTest{
 	}
 	*/
 	
+	public void testDummy(){
+		assertTrue(true);
+	}
+	
 	
 }

@@ -582,7 +582,6 @@ public class MetadataManagerImpl implements MetadataManager {
 		String value;
 		String id;
 
-		try {
 
 			for (MediaAttributeType mat : mediaAttributeTypeDAO.findAllByMediaType(mediaTypeKey)) {
 
@@ -590,12 +589,19 @@ public class MetadataManagerImpl implements MetadataManager {
 				logger.debug("Metadata Standard Implementation Class: "+ metadataStandardEntity.getImplementingClass());
 				metadataExtractorDAO = metadataStandardEntity.getMetadataExtractorDAOImpl();
 				metadataExtractorDAO.init(fileAddress);
-				value = metadataExtractorDAO.getAttributeValue(mat.getStandardAttributeId());
-
+				
+				try {
+					value = metadataExtractorDAO.getAttributeValue(mat.getStandardAttributeId());
+				} catch (Exception e) {
+					logger.error("no pudo leer el atributo del id: '"+mat.getStandardAttributeId()+"'");
+					logger.error(e.getMessage());
+					//return null;
+					value = null;
+				}
+				
 				ma = (MediaAttribute) mediaAttributeDAO.findById(MediaAttribute.class,
 						mat.getMediaAttributeId());
-				id = String.valueOf(ma.getMediaAttributeId());
-
+					id = String.valueOf(ma.getMediaAttributeId());
 
 				tmiDTO = new TechnicalMetadataItemDTO(id, ma.getNameTextKey(), value);
 				tmDTO.addItem(tmiDTO);
@@ -604,12 +610,6 @@ public class MetadataManagerImpl implements MetadataManager {
 			logger.info(tmDTO.toString());
 			return tmDTO;
 
-		} catch (Exception e) {
-			logger.error("volo una exception>");
-			logger.error(e.getMessage());
-			return null;
-
-		}
 	}
 
 

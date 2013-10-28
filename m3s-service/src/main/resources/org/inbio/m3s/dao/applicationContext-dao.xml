@@ -43,10 +43,15 @@
   <!-- M3S Agents implementation -->
   <bean id="M3SPersonDAO" class="org.inbio.m3s.dao.core.impl.M3SPersonDAOImpl" parent="baseDAORO"/>
   <bean id="M3SInstitutionDAO" class="org.inbio.m3s.dao.core.impl.M3SInstitutionDAOImpl" parent="baseDAORO"/>
-
   
   <!--  Multimedia  Metadata Exraction DAO's -->
   <bean id="EXIFMetadataExtractorDAO" class="org.inbio.m3s.dao.multimedia.impl.EXIFMetadataExtractorDAOImpl"/>
   <bean id="ExifGpsMetadataExtractorDAO" class="org.inbio.m3s.dao.multimedia.impl.ExifGpsMetadataExtractorDAOImpl"/>
+
+  <!-- Ara DAO Implementations -->  
+  <bean id="siteDAO" class="org.inbio.m3s.dao.core.impl.SiteDAOImpl" parent="baseDAORO"/>
+  <bean id="specimenDAO" class="org.inbio.m3s.dao.core.impl.SpecimenDAOImpl" parent="baseDAORO"/>  
+  <bean id="taxonDAO" class="org.inbio.m3s.dao.core.impl.TaxonDAOImpl" parent="baseDAORO"/>
+
   
 </beans>

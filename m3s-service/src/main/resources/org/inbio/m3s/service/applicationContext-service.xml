@@ -47,6 +47,58 @@
     <property name="systemUserDAO" ref="systemUserDAO"/>
   </bean>
   
+  <!-- metadata manager -->
+    <!-- Metadata Manager (3 version)-->  
+  <bean id="metadataManager" class="org.inbio.m3s.service.impl.MetadataManagerImpl">
+    <!-- dao  y dto factories-->
+    <property name="mediaDAO" ref="mediaDAO"/>
+    <property name="mediaProjectDAO" ref="mediaProjectDAO"/>
+    <property name="mediaKeywordDAO" ref="mediaKeywordDAO"/>
+    <property name="mediaUseDAO" ref="mediaUseDAO"/>
+    
+    <property name="mediaUseMediaDAO" ref="mediaUseMediaDAO"/>
+    <property name="taxonMediaDAO" ref="taxonMediaDAO"/>
+    <property name="gatheringMediaDAO" ref="gatheringMediaDAO"/>
+    <property name="specimenMediaDAO" ref="specimenMediaDAO"/>
+
+    <property name="observationMediaDAO" ref="observationMediaDAO"/>
+    <property name="mediaAttributeDAO" ref="mediaAttributeDAO"/>
+    <property name="textTranslationDAO" ref="textTranslationDAO"/>
+    <property name="mediaAttributeTypeDAO" ref="mediaAttributeTypeDAO"/>
+    
+    <property name="mediaAttributeValueDAO" ref="mediaAttributeValueDAO"/>
+    <property name="projectDAO" ref="projectDAO"/>
+    <property name="projectDTOFactory" ref="projectDTOFactory"/>                
+    <property name="keywordDAO" ref="keywordDAO"/>
+
+    <property name="briefMediaOutputDTOFactory" ref="briefMediaOutputDTOFactory"/>
+    
+    <!-- Managers -->
+    <property name="agentManager" ref="M3SAgentManager"/>
+    <property name="taxonomyManager" ref="taxonomyManager"/>
+  </bean>
+    <!--  BriefMediaOutputDTOFactory/Service -->
+  <bean id="briefMediaOutputDTOFactory" class="org.inbio.m3s.dto.media.BriefMediaOutputDTOFactory">
+    <property name="taxonomyManager" ref="taxonomyManager"/>
+    <property name="agentManager" ref="M3SAgentManager"/>
+  </bean>
+  <!-- taxonomy Manager (3 versiones)-->
+  <bean id="taxonomyManager" class="org.inbio.m3s.service.impl.TaxonomyManagerImpl">
+    <property name="taxonDAO" ref="taxonDAO"/>
+    <property name="tlDTOFactory" ref="taxonLiteDTOFactory"/>
+    <property name="gatheringMediaDAO" ref="gatheringMediaDAO"/>
+	<property name="personDAO" ref="M3SPersonDAO"/>
+    <property name="plDTOFactory" ref="personLiteDTOFactory"/>
+    <property name="agentManager" ref="M3SAgentManager"/>
+    <property name="specimenDAO" ref="specimenDAO"/>
+    <property name="slDTOFactory" ref="specimenLiteDTOFactory"/>
+    <property name="specimenMediaDAO" ref="specimenMediaDAO"/>
+    <property name="observationMediaDAO" ref="observationMediaDAO"/>
+    <property name="olDTOFactory" ref="observationLiteDTOFactory"/>
+    <property name="taxonMediaDAO" ref="taxonMediaDAO"/>
+  </bean>  
+    
+  
   <!-- SiteManager (2 version)-->
 
   <!-- statisticsManager (1 version)-->
@@ -54,13 +106,44 @@
     <property name="statisticsDAO" ref="statisticsDAO"/>
   </bean>
 
+  <!--  SearchManager -->
+  <bean id="searchManager" class="org.inbio.m3s.service.impl.SearchManagerImpl">
+    <property name="genericSearchDAO" ref="genericSearchDAO"/>
+    <property name="keywordDAO" ref="keywordDAO"/>
+    <property name="projectDAO" ref="projectDAO"/>
+    <property name="agentManager" ref="M3SAgentManager"/>
+    <property name="messageManager" ref="messageManager"/>  
+    <property name="taxonomyManager" ref="taxonomyManager"/>
+  </bean> 
+
+  <!-- SiteManager (2 version)-->
+  <bean id="siteManager" class="org.inbio.m3s.service.impl.SiteManagerImpl">
+  	<property name="taxonomyManager" ref="taxonomyManager"/>
+  	<property name="siteDAO" ref="siteDAO"/>
+  </bean>  
+
 <!-- taxonomy Manager (3 versiones)-->
   
   
-<!-- importFromFile (3 versiones, ¿¿seran mas??)-->  
-
+<!-- importFromFile-->  
+  <bean id="importFromFile" class="org.inbio.m3s.service.util.ImportFromFile">
+    <!-- daos -->
+    <property name="siteDAO" ref="siteDAO"/>
+    <!-- managers -->
+    <property name="taxonomyManager" ref="taxonomyManager"/>
+    <property name="siteManager" ref="siteManager"/>
+    <property name="agentManager" ref="M3SAgentManager"/>
+    <property name="messageManager" ref="messageManager"/>  
+    <property name="metadataManager" ref="metadataManager"/>    
+    <!-- util -->
+  	<property name="mediaFileManagement" ref="mediaFileManagement"/>
+  </bean>
   
-<!-- importThread (1 versiones, seran 3)-->  
+<!-- importThread -->  
+  <bean id="importThread" class="org.inbio.m3s.service.util.ImportThread">
+    <property name="importationManager" ref="importationManager"/>
+    <property name="importFromFile" ref="importFromFile"/>
+  </bean>
 		
 <!-- AutoComplete Managers -->		
   <bean id="projectNameAutoCompleteManager" class="org.inbio.m3s.service.autocomplete.impl.ProjectNameAutoCompleteManagerImpl">
@@ -70,5 +153,15 @@
     <property name="keywordDAO" ref="keywordDAO"/>
   </bean>
 
+  <!-- AutoComplete Managers -->
+  <bean id="institutionNameAutoCompleteManager" class="org.inbio.m3s.service.autocomplete.impl.InstitutionNameAutoCompleteManagerImpl">
+    <property name="institutionDAO" ref="M3SInstitutionDAO"/>
+  </bean>
+  <bean id="personNameAutoCompleteManager" class="org.inbio.m3s.service.autocomplete.impl.PersonNameAutoCompleteManagerImpl">
+    <property name="personDAO" ref="M3SPersonDAO"/>
+  </bean>
+  <bean id="taxonNameAutoCompleteManager" class="org.inbio.m3s.service.autocomplete.impl.TaxonNameAutoCompleteManagerImpl">
+    <property name="taxonDAO" ref="taxonDAO"/>
+  </bean>  
 	
 </beans>

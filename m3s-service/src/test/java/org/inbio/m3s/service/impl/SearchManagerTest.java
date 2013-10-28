@@ -44,6 +44,8 @@ public class SearchManagerTest extends AbstractServiceTest{
 		int total = sm.getTotalResults(searchCriteria);
 		
 		logger.info("total de resultados: " + total);
+		
+		assertTrue(true);
 	}
 
 }

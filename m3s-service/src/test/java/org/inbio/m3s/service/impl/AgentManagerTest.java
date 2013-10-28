@@ -30,6 +30,10 @@ public class AgentManagerTest extends AbstractServiceTest{
 	//protected static String testPersonName = "Jaime Gutiérrez";
 	protected static String testPersonKey = "13965";
 	
+	public void testDummy() {
+		assertTrue(true);
+	}
+	
 	/*
 	public void testGetInstitutionLiteByName(){
 		logger.info("testGetInstitutionLiteByName");

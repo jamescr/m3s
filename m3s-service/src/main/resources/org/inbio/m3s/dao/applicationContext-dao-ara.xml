@@ -30,7 +30,7 @@
 		<property name="poolPreparedStatements" value="true"/>
 	</bean>	
 
-	<!-- Ara DAO Implementations -->  
+  <!-- Ara DAO Implementations -->  
   <bean id="ARAInstitutionDAO" class="org.inbio.m3s.dao.ara.impl.ARAInstitutionDAOImpl" parent="araBaseDAORO"/>
   <bean id="ARAPersonDAO" class="org.inbio.m3s.dao.ara.impl.ARAPersonDAOImpl" parent="araBaseDAORO"/>
   <bean id="ARASiteDAO" class="org.inbio.m3s.dao.ara.impl.ARASiteDAOImpl" parent="araBaseDAORO"/>
